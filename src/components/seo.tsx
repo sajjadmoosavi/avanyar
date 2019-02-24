@@ -10,7 +10,7 @@ type Props = {
   title: string;
 };
 
-const SEO: React.SFC<Props> = ({ description, keywords, lang, meta, title }) => {
+const SEO: React.SFC<Props> = ({ description = "", keywords = [], lang = "fa", meta = [], title }) => {
   return (
   <StaticQuery
     query={detailsQuery}
