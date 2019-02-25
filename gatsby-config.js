@@ -1,48 +1,56 @@
+const title = `آوان‌یار | ارائه راهکارهای امنیتی و هوشمند‌سازی برای خانه، محل کار و سازمان شما`;
+const description = `خدمات دوربین مداربسته و پسیو شبکه برای خانه، محل کار و سازمان شما`;
+const author = `@avanyarteam`;
+const keywords = [
+  'دوربین مدار‌بسته',
+  'پسیو شبکه',
+  'دزدگیر',
+  'اتوماسیون صنعتی',
+  'هوشمند سازی',
+  'امنیت',
+  'نظارت',
+  'تصویر',
+  'گیت تردد',
+  'کرکره برقی',
+  'درب برقی',
+  'CCTV',
+  'Network',
+  'Security',
+  'Gate',
+  'Industerial Automation',
+  'Video Record',
+];
+const name = `آوان‌یار`;
+const theme = `#363636`;
+const background = `#363636`;
+// PWA display types: fullscreen | standalone | minimal-ui | browser
+const display = `minimal-ui`;
+
 module.exports = {
   siteMetadata: {
-    title: `آوان‌یار | ارائه راهکارهای امنیتی و هوشمند‌سازی برای خانه، محل کار و سازمان شما`,
-    description: `خدمات دوربین مداربسته و پسیو شبکه برای خانه، محل کار و سازمان شما`,
-    author: `@avanyarteam`,
-    keywords: [
-      'دوربین مدار‌بسته',
-      'پسیو شبکه',
-      'دزدگیر',
-      'اتوماسیون صنعتی',
-      'هوشمند سازی',
-      'امنیت',
-      'نظارت',
-      'تصویر',
-      'گیت تردد',
-      'کرکره برقی',
-      'درب برقی',
-      'CCTV',
-      'Network',
-      'Security',
-      'Gate',
-      'Industerial Automation',
-      'Video Record',
-    ]
+    title,
+    description,
+    author,
+    keywords,
   },
   plugins: [
     `gatsby-plugin-typescript`,
     `gatsby-plugin-react-helmet`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
+    `gatsby-plugin-sass`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `gatsby-starter-default`,
-        short_name: `starter`,
+        name: title,
+        short_name: name,
         start_url: `/`,
-        background_color: `#663399`,
-        theme_color: `#663399`,
-        display: `minimal-ui`,
-        // icon: `src/images/gatsby-icon.png`, // This path is relative to the root of the site.
+        background_color: theme,
+        theme_color: background,
+        display: display,
+        icon: 'src/assets/icons/icon.png',
       },
     },
-    `gatsby-plugin-sass`,
-    // this (optional) plugin enables Progressive Web App + Offline functionality
-    // To learn more, visit: https://gatsby.app/offline
-    // 'gatsby-plugin-offline',
+    `gatsby-plugin-offline`,
   ],
 }

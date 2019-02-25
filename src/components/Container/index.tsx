@@ -9,7 +9,9 @@ export const Container = ({ children }) => (
       htmlAttributes={{
         dir: "rtl",
       }}
-    />
+    >
+      <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+    </Helmet>
     <section className="hero is-primary is-medium is-bold">
       <div className="hero-head">
         <nav className="navbar">
