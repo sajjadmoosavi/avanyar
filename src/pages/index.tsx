@@ -1,38 +1,46 @@
 import React from "react"
-import {Container} from "../components/Container"
+import { Container } from "../components/Container"
 import { SEO } from "../components/seo"
 
 const IndexPage = () => (
   <Container>
     <SEO title="Home" />
-    <h1 className="title">
-        Bulma
-      </h1>
-
-      <p className="subtitle">
-        Modern CSS framework based on <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox">Flexbox</a>
-      </p>
-
-      <div className="field">
-        <div className="control">
-          <input className="input" type="text" placeholder="Input" />
+    <section className="hero is-medium">
+      <div className="hero-body">
+        <div className="container has-text-centered">
+          <h1 className="title">
+            خدمات
+          </h1>
+          <h2 className="subtitle">
+            رضایت، کمترین زمان و ضمانت در ارائه خدمات باعث اعتماد مشتریان به ما شده‌است
+          </h2>
         </div>
       </div>
-
-      <div className="field">
-        <p className="control">
-          <span className="select">
-            <select>
-              <option>Select dropdown</option>
-            </select>
-          </span>
-        </p>
+    </section>
+    <section className="hero is-medium is-light is-bold">
+      <div className="hero-body">
+        <div className="container has-text-centered">
+          <h1 className="title">
+            روش‌کار
+          </h1>
+          <h2 className="subtitle">
+            مراحلی که از درخواست شما تا تحویل کار طی می‌شود
+          </h2>
+        </div>
       </div>
-
-      <div className="buttons">
-        <a className="button is-primary">Primary</a>
-        <a className="button is-link">Link</a>
+    </section>
+    <section className="hero is-medium is-dark is-bold">
+      <div className="hero-body">
+        <div className="container has-text-centered">
+          <h1 className="title">
+            تماس
+          </h1>
+          <h2 className="subtitle">
+            راه‌های تماس با ما
+          </h2>
+        </div>
       </div>
+    </section>
   </Container>
 )
 
