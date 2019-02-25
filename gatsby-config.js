@@ -1,8 +1,27 @@
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `آوان‌یار | ارائه راهکارهای امنیتی و هوشمند‌سازی برای خانه، محل کار و سازمان شما`,
+    description: `خدمات دوربین مداربسته و پسیو شبکه برای خانه، محل کار و سازمان شما`,
+    author: `@avanyarteam`,
+    keywords: [
+      'دوربین مدار‌بسته',
+      'پسیو شبکه',
+      'دزدگیر',
+      'اتوماسیون صنعتی',
+      'هوشمند سازی',
+      'امنیت',
+      'نظارت',
+      'تصویر',
+      'گیت تردد',
+      'کرکره برقی',
+      'درب برقی',
+      'CCTV',
+      'Network',
+      'Security',
+      'Gate',
+      'Industerial Automation',
+      'Video Record',
+    ]
   },
   plugins: [
     `gatsby-plugin-typescript`,

@@ -1,10 +1,10 @@
 import React from "react"
 import { Container } from "../components/Container"
-import { SEO } from "../components/seo"
+import { SEO } from "../components/SEO"
 
 const IndexPage = () => (
   <Container>
-    <SEO title="Home" />
+    <SEO />
     <section className="hero is-medium">
       <div className="hero-body">
         <div className="container has-text-centered">

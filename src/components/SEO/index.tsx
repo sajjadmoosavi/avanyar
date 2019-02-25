@@ -7,15 +7,22 @@ type Props = {
   lang?: string;
   meta?: { name: string; content: any; }[];
   keywords?: string[];
-  title: string;
+  title?: string;
 };
 
-const SEO: React.SFC<Props> = ({ description = "", keywords = [], lang = "fa", meta = [], title }) => {
+const SEO: React.SFC<Props> = (props) => {
   return (
   <StaticQuery
-    query={detailsQuery}
+    query={query}
     render={data => {
-      const metaDescription = description || data.site.siteMetadata.description;
+      const description = props.description || data.site.siteMetadata.description;
+      const keywords = [
+        ...data.site.siteMetadata.keywords || [],
+        ...props.keywords || [],
+      ];
+      const title = props.title || data.site.siteMetadata.title || "آوان‌یار";
+      const lang = props.lang || "fa";
+      const author = data.site.siteMetadata.author || "@avanyarteam";
       return (
         <Helmet
           htmlAttributes={{
@@ -26,7 +33,7 @@ const SEO: React.SFC<Props> = ({ description = "", keywords = [], lang = "fa", m
           meta={[
             {
               name: `description`,
-              content: metaDescription,
+              content: description,
             },
             {
               property: `og:title`,
@@ -34,7 +41,7 @@ const SEO: React.SFC<Props> = ({ description = "", keywords = [], lang = "fa", m
             },
             {
               property: `og:description`,
-              content: metaDescription,
+              content: description,
             },
             {
               property: `og:type`,
@@ -46,7 +53,7 @@ const SEO: React.SFC<Props> = ({ description = "", keywords = [], lang = "fa", m
             },
             {
               name: `twitter:creator`,
-              content: data.site.siteMetadata.author,
+              content: author,
             },
             {
               name: `twitter:title`,
@@ -54,7 +61,7 @@ const SEO: React.SFC<Props> = ({ description = "", keywords = [], lang = "fa", m
             },
             {
               name: `twitter:description`,
-              content: metaDescription,
+              content: description,
             },
           ].concat(
             keywords.length > 0
@@ -63,7 +70,7 @@ const SEO: React.SFC<Props> = ({ description = "", keywords = [], lang = "fa", m
                 content: keywords.join(`, `),
               }
               : []
-          ).concat(meta)}
+          ).concat(props.meta || [])}
         />
       )
     }}
@@ -73,13 +80,14 @@ const SEO: React.SFC<Props> = ({ description = "", keywords = [], lang = "fa", m
 
 export { SEO };
 
-const detailsQuery = graphql`
+const query = graphql`
   query DefaultSEOQuery {
     site {
       siteMetadata {
         title
         description
         author
+        keywords
       }
     }
   }
