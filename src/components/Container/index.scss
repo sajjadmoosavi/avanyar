@@ -2,21 +2,36 @@
 
 @import url('https://cdn.rawgit.com/rastikerdar/vazir-font/v[19.2.0]/dist/font-face.css');
 
-$purple: #8A4D76;
-$pink: #FA7C91;
-$brown: #757763;
-$beige-light: #D0D1CD;
-$beige-lighter: #EFF0EB;
-
 $family-sans-serif: 'Vazir', sans-serif;
-$grey-dark: #070d59;
+
+// Palette #1
+
+$grey-dark: #363636;
 $grey-light: #ceddef;
 $primary: #1f3c88;
 $link: #5893d4;
+$body-background-color: #fff;
+
+// Palette #2
+
+// $grey-dark: #222831;
+// $grey-light: #dbe2ef;
+// $primary: #112d4e;
+// $link: #3f72af;
+// $body-background-color: #f9f7f7;
+
+// Palette #3
+
+// $grey-dark: #031634;
+// $grey-light: #033649;
+// $primary: #036564;
+// $link: #CDB380;
+// $body-background-color: #E8DDCB;
+
+
 $widescreen-enabled: false;
 $fullhd-enabled: false;
 
-$body-background-color: #fff;
 $control-border-width: 2px;
 $input-shadow: none;
 
