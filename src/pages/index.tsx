@@ -1,38 +1,23 @@
 import React from "react"
-import {Container} from "../components/Container"
+import { Container } from "../components/Container"
 import { SEO } from "../components/seo"
 
 const IndexPage = () => (
   <Container>
     <SEO title="Home" />
-    <h1 className="title">
-        Bulma
+    <section className="hero is-light is-bold is-fullheight">
+      <div className="hero-body">
+        <div className="container">
+          <h1 className="title">
+            آوان‌یار
       </h1>
-
-      <p className="subtitle">
-        Modern CSS framework based on <a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Flexible_Box_Layout/Basic_Concepts_of_Flexbox">Flexbox</a>
-      </p>
-
-      <div className="field">
-        <div className="control">
-          <input className="input" type="text" placeholder="Input" />
+          <h2 className="subtitle" style={{marginTop: 0}}>
+          <p>وبسایت ما در حال توسعه است.</p>
+          <p> منتطر خبر‌های خوش از آوان‌یار باشید‌ :)</p>
+      </h2>
         </div>
       </div>
-
-      <div className="field">
-        <p className="control">
-          <span className="select">
-            <select>
-              <option>Select dropdown</option>
-            </select>
-          </span>
-        </p>
-      </div>
-
-      <div className="buttons">
-        <a className="button is-primary">Primary</a>
-        <a className="button is-link">Link</a>
-      </div>
+    </section>
   </Container>
 )
 
