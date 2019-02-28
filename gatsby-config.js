@@ -52,5 +52,12 @@ module.exports = {
       },
     },
     `gatsby-plugin-offline`,
+    {
+      resolve: `gatsby-source-contentful`,
+      options: {
+        spaceId: `esdrv9zowlcp`,
+        accessToken: `b8cf2fb475a69cff1ac4f5c09763a148407e2b16bb929acb3633a1b986ca46f2`,
+      },
+    },
   ],
 }
