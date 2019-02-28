@@ -11,10 +11,10 @@ export const ServiceTile = ({ services }: Props) => {
       {
         services.edges.map((item) => (
           <div className="tile is-parent">
-            <article className="tile is-child box">
+            <article className="tile is-child notification is-warning">
               <p className="title">{item.node.title}</p>
               <p className="subtitle">{item.node.subtitle}</p>
-              <figure className="image is-16by9">
+              <figure className="is-inline-block image is-128x128">
                 <img src={item.node.thumbnail.file.url} />
               </figure>
             </article>
