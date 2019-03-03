@@ -3,3 +3,4 @@ export { AllContentfulModel } from  "./AllContentfulModel";
 export { Model } from "./Model";
 export { Asset } from "./Asset";
 export { File } from "./File";
+export { Message } from "./Message";

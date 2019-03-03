@@ -4,6 +4,7 @@ import { SEO } from "../components/SEO"
 import { useStaticQuery, graphql } from "gatsby";
 import { ServiceTile } from "../components/ServiceTile";
 import { AllContentfulModel, Service } from "../models";
+import { ContactForm } from "../components/ContactForm";
 
 interface AllContentfulService {
   allContentfulService: AllContentfulModel<Service>;
@@ -62,15 +63,16 @@ const IndexPage = () => {
           </div>
         </div>
       </section>
-      <section className="hero is-medium is-dark is-bold">
+      <section className="hero is-medium is-bold">
         <div className="hero-body">
-          <div className="container has-text-centered">
-            <h1 className="title">
+          <div className="container">
+            <h1 className="title has-text-centered">
               تماس
             </h1>
-            <h2 className="subtitle">
+            <h2 className="subtitle has-text-centered">
               راه‌های تماس با ما
             </h2>
+            <ContactForm />
           </div>
         </div>
       </section>
