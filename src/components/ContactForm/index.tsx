@@ -71,6 +71,7 @@ export const ContactForm: React.SFC<Props> = () => {
     <form
       name="contact"
       method="POST"
+      action="/thanks"
       data-netlify="true"
       onSubmit={handleSubmit}
       netlify-honeypot="bot-field"
@@ -96,7 +97,7 @@ export const ContactForm: React.SFC<Props> = () => {
             className={classNames("input", getFieldClass(submitted, errors.contact))}
             type="text"
             placeholder="شماره تماس یا آدرس ایمیل"
-            name=""
+            name="contact"
             value={contact}
             onChange={handleContactChange}
           />
