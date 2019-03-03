@@ -68,7 +68,13 @@ export const ContactForm: React.SFC<Props> = () => {
   const disabled = submitted && !formIsValid(errors);
 
   return (
-    <form name="contact" method="POST" data-netlify="true" onSubmit={handleSubmit}>
+    <form
+      name="contact"
+      method="POST"
+      data-netlify="true"
+      onSubmit={handleSubmit}
+      netlify-honeypot="bot-field"
+    >
       <div className="field">
         <label className="label">نام</label>
         <div className="control">
@@ -122,6 +128,7 @@ export const ContactForm: React.SFC<Props> = () => {
           </button>
         </div>
       </div>
+      <input type="hidden" name="form-name" value="contact" />
     </form>
   );
 };
