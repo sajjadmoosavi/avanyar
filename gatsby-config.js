@@ -1,3 +1,5 @@
+const path = require(`path`);
+
 const title = `آوان‌یار | ارائه راهکارهای امنیتی و هوشمند‌سازی برای خانه، محل کار و سازمان شما`;
 const description = `خدمات دوربین مداربسته و پسیو شبکه برای خانه، محل کار و سازمان شما`;
 const author = `@avanyarteam`;
@@ -35,6 +37,13 @@ module.exports = {
   },
   plugins: [
     `gatsby-plugin-typescript`,
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: path.join(__dirname, `src`, `images`),
+      },
+    },
     `gatsby-plugin-react-helmet`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
@@ -48,7 +57,7 @@ module.exports = {
         background_color: theme,
         theme_color: background,
         display: display,
-        icon: 'src/assets/icons/icon.png',
+        icon: 'src/images/icon.png',
       },
     },
     `gatsby-plugin-offline`,

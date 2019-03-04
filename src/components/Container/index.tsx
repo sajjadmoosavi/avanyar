@@ -2,8 +2,9 @@ import React from 'react';
 import './index.scss';
 import './bulma-rtl.scss';
 import Helmet from 'react-helmet';
+import Img from 'gatsby-image';
 
-export const Container = ({ children }) => (
+export const Container = ({ children, logo }) => (
   <>
     <Helmet
       htmlAttributes={{
@@ -17,10 +18,21 @@ export const Container = ({ children }) => (
         <nav className="navbar">
           <div className="container">
             <div className="navbar-brand">
-              <a className="navbar-item">
-                <h1 className="title">
-                  آوان‌یار
-              </h1>
+              <a>
+                <div className="level is-mobile" style={{margin: '6px 0'}}>
+                  <div className="level-item">
+                    <Img
+                      fixed={logo.childImageSharp.fixed}
+                      title="آوان‌یار"
+                      alt="آوان‌یار"
+                    />
+                  </div>
+                  <div className="level-item">
+                    <h1 className="title">
+                      آوان‌یار
+                    </h1>
+                  </div>
+                </div>
               </a>
               <span className="navbar-burger burger" data-target="navbarMenuHeroA">
                 <span></span>
@@ -47,7 +59,7 @@ export const Container = ({ children }) => (
         </div>
       </div>
     </section>
-      {children}
+    {children}
     <footer className="footer">
       <div className="content has-text-centered">
         <p>
