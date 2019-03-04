@@ -1,6 +1,7 @@
 const path = require(`path`);
 
-const title = `آوان‌یار | ارائه راهکارهای امنیتی و هوشمند‌سازی برای خانه، محل کار و سازمان شما`;
+const name = `آوان‌یار`;
+const title = `${name} | ارائه راهکارهای امنیتی و هوشمند‌سازی برای خانه، محل کار و سازمان شما`;
 const description = `خدمات دوربین مداربسته و پسیو شبکه برای خانه، محل کار و سازمان شما`;
 const author = `@avanyarteam`;
 const keywords = [
@@ -22,7 +23,6 @@ const keywords = [
   'Industerial Automation',
   'Video Record',
 ];
-const name = `آوان‌یار`;
 const theme = `#363636`;
 const background = `#363636`;
 // PWA display types: fullscreen | standalone | minimal-ui | browser
@@ -30,6 +30,7 @@ const display = `minimal-ui`;
 
 module.exports = {
   siteMetadata: {
+    name,
     title,
     description,
     author,

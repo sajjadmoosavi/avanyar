@@ -4,7 +4,7 @@ import './bulma-rtl.scss';
 import Helmet from 'react-helmet';
 import Img from 'gatsby-image';
 
-export const Container = ({ children, logo }) => (
+export const Container = ({ children, logo, seo }) => (
   <>
     <Helmet
       htmlAttributes={{
@@ -23,8 +23,8 @@ export const Container = ({ children, logo }) => (
                   <div className="level-item">
                     <Img
                       fixed={logo.childImageSharp.fixed}
-                      title="آوان‌یار"
-                      alt="آوان‌یار"
+                      title={seo.siteMetadata.name}
+                      alt={seo.siteMetadata.name}
                     />
                   </div>
                   <div className="level-item">

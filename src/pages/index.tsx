@@ -1,7 +1,7 @@
 import React from "react"
 import { Container } from "../components/Container"
 import { SEO } from "../components/SEO"
-import { useStaticQuery, graphql } from "gatsby";
+import { graphql } from "gatsby";
 import { ServiceTile } from "../components/ServiceTile";
 import { AllContentfulModel, Service } from "../models";
 import { ContactForm } from "../components/ContactForm";
@@ -10,6 +10,7 @@ type Props = {
   data: {
     services: AllContentfulModel<Service>;
     logo: any;
+    seo: any;
   }
 }
 
@@ -17,8 +18,8 @@ type Props = {
 
 const IndexPage: React.SFC<Props> = ({ data }) => {
   return (
-    <Container logo={data.logo}>
-      <SEO />
+    <Container logo={data.logo} seo={data.seo}>
+      <SEO seo={data.seo}/>
       <section className="hero is-medium">
         <div className="hero-body">
           <div className="container has-text-centered">
@@ -103,6 +104,14 @@ query {
           }
         }
       }
+    }
+  }
+  seo: site {
+    siteMetadata {
+      title
+      description
+      author
+      keywords
     }
   }
 }
