@@ -20,11 +20,13 @@ type Props = {
 
 
 const IndexPage: React.SFC<Props> = ({ data }) => {
+  console.log(data);
+  
   return (
     <Container logo={data.logo} seo={data.seo}>
       <SEO seo={data.seo}/>
       <section className="hero is-medium">
-        <div className="hero-body">
+        <div id="services" className="hero-body">
           <div className="container has-text-centered">
             <h1 className="title">
               خدمات
@@ -36,7 +38,7 @@ const IndexPage: React.SFC<Props> = ({ data }) => {
           </div>
         </div>
       </section>
-      <section className="hero is-medium is-light is-bold">
+      <section id="workflow" className="hero is-medium is-light">
         <div className="hero-body">
           <div className="container has-text-centered">
             <h1 className="title">
@@ -48,7 +50,7 @@ const IndexPage: React.SFC<Props> = ({ data }) => {
           </div>
         </div>
       </section>
-      <section className="hero is-medium is-bold">
+      <section id="contact" className="hero is-medium">
         <div className="hero-body">
           <div className="container">
             <h1 className="title has-text-centered">

@@ -11,7 +11,7 @@ export const Logo = ({ image, seo }) => (
       />
     </div>
     <div className="level-item">
-      <h1 className="title">
+      <h1 className="title has-text-white">
         {seo.siteMetadata.name}
       </h1>
     </div>

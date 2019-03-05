@@ -3,42 +3,78 @@ import './index.scss';
 import './bulma-rtl.scss';
 import Helmet from 'react-helmet';
 import { Logo } from '../Logo';
+import { Link } from 'react-scroll';
 
 export const Container = ({ children, logo, seo }) => (
   <>
     <Helmet
       htmlAttributes={{
-        dir: "rtl",
+        dir: 'rtl',
+        class: 'has-navbar-fixed-top',
       }}
     >
       <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
     </Helmet>
-    <section className="hero is-primary is-medium is-bold">
-      <div className="hero-head">
-        <nav className="navbar">
-          <div className="container">
-            <div className="navbar-brand">
-              <a>
-                <Logo seo={seo} image={logo}/>
-              </a>
-              <span className="navbar-burger burger" data-target="navbarMenuHeroA">
-                <span></span>
-                <span></span>
-                <span></span>
-              </span>
-            </div>
-            <div id="navbarMenuHeroA" className="navbar-menu">
-              <div className="navbar-end">
-                <a className="navbar-item is-active">خدمات</a>
-                <a className="navbar-item">روش‌کار</a>
-                <a className="navbar-item">تماس</a>
-                <a className="navbar-item">بلاگ</a>
-              </div>
-            </div>
+    <nav className="navbar is-fixed-top is-primary">
+      <div className="container">
+        <div className="navbar-brand">
+          <Link
+            activeClass="is-active"
+            to="hero"
+            spy={true}
+            smooth={true}
+            offset={-52}
+            duration={500}
+          >
+            <Logo seo={seo} image={logo} />
+          </Link>
+          <span className="navbar-burger burger" data-target="navbarMenuHeroA">
+            <span></span>
+            <span></span>
+            <span></span>
+          </span>
+        </div>
+        <div id="navbarMenuHeroA" className="navbar-menu">
+          <div className="navbar-end">
+            <Link
+              className="navbar-item"
+              activeClass="is-active"
+              to="services"
+              spy={true}
+              smooth={true}
+              offset={-52}
+              duration={500}
+            >
+              خدمات
+                </Link>
+            <Link
+              className="navbar-item"
+              activeClass="is-active"
+              to="workflow"
+              spy={true}
+              smooth={true}
+              offset={-52}
+              duration={500}
+            >
+              روش‌کار
+                </Link>
+            <Link
+              className="navbar-item"
+              activeClass="is-active"
+              to="contact"
+              spy={true}
+              smooth={true}
+              offset={-52}
+              duration={500}
+            >
+              تماس
+                </Link>
+            <a className="navbar-item">بلاگ</a>
           </div>
-        </nav>
+        </div>
       </div>
-
+    </nav>
+    <section id="hero" className="hero is-primary is-medium">
       <div className="hero-body">
         <div className="container has-text-centered">
           <h2 className="title">ارائه راه‌کارهای امنیتی و هوشمندسازی</h2>
