@@ -1,3 +1,7 @@
 .navbar > .container .navbar-brand, .container > .navbar .navbar-brand {
   margin-left: 1.75rem;
 }
+.level.is-mobile .level-item:not(:last-child) {
+  margin-right: 0;
+  margin-left: 0.75rem;
+}

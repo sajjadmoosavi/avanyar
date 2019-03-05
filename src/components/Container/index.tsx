@@ -2,7 +2,7 @@ import React from 'react';
 import './index.scss';
 import './bulma-rtl.scss';
 import Helmet from 'react-helmet';
-import Img from 'gatsby-image';
+import { Logo } from '../Logo';
 
 export const Container = ({ children, logo, seo }) => (
   <>
@@ -19,20 +19,7 @@ export const Container = ({ children, logo, seo }) => (
           <div className="container">
             <div className="navbar-brand">
               <a>
-                <div className="level is-mobile" style={{margin: '6px 0'}}>
-                  <div className="level-item">
-                    <Img
-                      fixed={logo.childImageSharp.fixed}
-                      title={seo.siteMetadata.name}
-                      alt={seo.siteMetadata.name}
-                    />
-                  </div>
-                  <div className="level-item">
-                    <h1 className="title">
-                      آوان‌یار
-                    </h1>
-                  </div>
-                </div>
+                <Logo seo={seo} image={logo}/>
               </a>
               <span className="navbar-burger burger" data-target="navbarMenuHeroA">
                 <span></span>

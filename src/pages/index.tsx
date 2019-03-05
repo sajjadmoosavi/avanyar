@@ -5,12 +5,15 @@ import { graphql } from "gatsby";
 import { ServiceTile } from "../components/ServiceTile";
 import { AllContentfulModel, Service } from "../models";
 import { ContactForm } from "../components/ContactForm";
+import { Logo } from "../components/Logo";
+import { LocationMap } from "../components/LocationMap";
 
 type Props = {
   data: {
     services: AllContentfulModel<Service>;
     logo: any;
     seo: any;
+    map: any;
   }
 }
 
@@ -62,9 +65,16 @@ const IndexPage: React.SFC<Props> = ({ data }) => {
               </div>
               <div className="tile is-6 is-parent">
                 <div className="tile is-child">
-                  <p className="is-size-4 has-text-weight-semibold">آوان‌یار</p>
+                  <Logo seo={data.seo} image={data.logo}/>
                   <p className="is-size-5 has-text-weight-semibold has-text-grey-dark">۰۲۱-۱۲۳۴۵۶۷۸</p>
-                  <p className="is-size-6 has-text-weight-semibold has-text-grey-dark">تهران، اتوبان اشرفی اصفهانی، ساختمان زمرد</p>
+                  <p className="is-size-6 has-text-grey-dark">تهران، اتوبان اشرفی اصفهانی، ساختمان زمرد</p>
+                  <p className="is-size-6 has-text-grey-dark">
+                    <a href="mailto:avanyar@outlook.com">avanyar@outlook.com</a>
+                  </p>
+                  <LocationMap
+                    image={data.map}
+                    address="تهران، اتوبان اشرفی اصفهانی، ساختمان زمرد"
+                  />
                 </div>
               </div>
             </div>
@@ -82,6 +92,13 @@ query {
   logo: file(relativePath: { eq: "icon-face.png" }) {
     childImageSharp {
       fixed(height: 40, width: 40) {
+        ...GatsbyImageSharpFixed
+      }
+    }
+  }
+  map: file(relativePath: { eq: "map.png" }) {
+    childImageSharp {
+      fixed(height: 320, width: 320) {
         ...GatsbyImageSharpFixed
       }
     }
@@ -108,6 +125,7 @@ query {
   }
   seo: site {
     siteMetadata {
+      name
       title
       description
       author
