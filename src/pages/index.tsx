@@ -65,7 +65,7 @@ const IndexPage: React.SFC<Props> = ({ data }) => {
               </div>
               <div className="tile is-6 is-parent">
                 <div className="tile is-child">
-                  <Logo seo={data.seo} image={data.logo}/>
+                  <Logo seo={data.seo} image={data.logo} reverse={false} />
                   <p className="is-size-5 has-text-weight-semibold has-text-grey-dark">۰۲۱-۱۲۳۴۵۶۷۸</p>
                   <p className="is-size-6 has-text-grey-dark">تهران، اتوبان اشرفی اصفهانی، ساختمان زمرد</p>
                   <p className="is-size-6 has-text-grey-dark">

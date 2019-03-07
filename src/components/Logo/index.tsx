@@ -1,7 +1,8 @@
 import React from 'react';
 import Img from 'gatsby-image';
+import classNames from 'classnames';
 
-export const Logo = ({ image, seo }) => (
+export const Logo = ({ image, seo, reverse }) => (
   <div className="level is-mobile" style={{ margin: '6px 0', maxWidth: 136 }}>
     <div className="level-item">
       <Img
@@ -11,7 +12,7 @@ export const Logo = ({ image, seo }) => (
       />
     </div>
     <div className="level-item">
-      <h1 className="title has-text-white">
+      <h1 className={classNames("title", reverse ? "has-text-white" : "has-text-dark")}>
         {seo.siteMetadata.name}
       </h1>
     </div>

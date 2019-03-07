@@ -26,7 +26,7 @@ export const Container = ({ children, logo, seo }) => (
             offset={-52}
             duration={500}
           >
-            <Logo seo={seo} image={logo} />
+            <Logo seo={seo} image={logo} reverse={true}/>
           </Link>
           <span className="navbar-burger burger" data-target="navbarMenuHeroA">
             <span></span>
