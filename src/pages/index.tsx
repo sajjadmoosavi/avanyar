@@ -20,8 +20,6 @@ type Props = {
 
 
 const IndexPage: React.SFC<Props> = ({ data }) => {
-  console.log(data);
-  
   return (
     <Container logo={data.logo} seo={data.seo}>
       <SEO seo={data.seo}/>
