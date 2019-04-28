@@ -3,14 +3,16 @@ import { Container } from "../components/Container"
 import { SEO } from "../components/SEO"
 import { graphql } from "gatsby";
 import { ServiceTile } from "../components/ServiceTile";
-import { AllContentfulModel, Service } from "../models";
+import { AllContentfulModel, Service, Step } from "../models";
 import { ContactForm } from "../components/ContactForm";
 import { Logo } from "../components/Logo";
 import { LocationMap } from "../components/LocationMap";
+import { StepTile } from "../components/StepTile";
 
 type Props = {
   data: {
     services: AllContentfulModel<Service>;
+    steps: AllContentfulModel<Step>;
     logo: any;
     seo: any;
     map: any;
@@ -38,13 +40,14 @@ const IndexPage: React.SFC<Props> = ({ data }) => {
       </section>
       <section id="workflow" className="hero is-medium is-light">
         <div className="hero-body">
-          <div className="container has-text-centered">
+          <div className="container is-fluid has-text-centered">
             <h1 className="title">
               روش‌کار
             </h1>
             <h2 className="subtitle">
               مراحلی که از درخواست شما تا تحویل کار طی می‌شود
             </h2>
+            <StepTile steps={data.steps} />
           </div>
         </div>
       </section>
@@ -116,6 +119,21 @@ query {
           }
         }
         thumbnail {
+          file {
+            url
+          }
+        }
+      }
+    }
+  }
+  steps: allContentfulStep ( sort:{ fields: order, order: ASC } ) {
+    edges {
+      node {
+        id
+        order
+        name
+        description
+        picture {
           file {
             url
           }
