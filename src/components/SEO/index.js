@@ -1,12 +1,7 @@
 import React from "react"
 import { Helmet } from "react-helmet"
 
-type Props = {
-  seo: any;
-  title?: string;
-};
-
-const SEO: React.SFC<Props> = ({ seo, title }) => {
+const SEO = ({ seo, title }) => {
 
   const description = seo.siteMetadata.description || '';
   const safeTitle = title || seo.siteMetadata.title || 'آوان‌یار';

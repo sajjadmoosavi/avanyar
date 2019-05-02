@@ -3,25 +3,13 @@ import { Container } from "../components/Container"
 import { SEO } from "../components/SEO"
 import { graphql } from "gatsby";
 import { ServiceTile } from "../components/ServiceTile";
-import { AllContentfulModel, Service, Step } from "../models";
 import { ContactForm } from "../components/ContactForm";
 import { Logo } from "../components/Logo";
 import { LocationMap } from "../components/LocationMap";
 import { StepTile } from "../components/StepTile";
 
-type Props = {
-  data: {
-    services: AllContentfulModel<Service>;
-    steps: AllContentfulModel<Step>;
-    logo: any;
-    seo: any;
-    map: any;
-  }
-}
 
-
-
-const IndexPage: React.SFC<Props> = ({ data }) => {
+const IndexPage = ({ data }) => {
   return (
     <Container logo={data.logo} seo={data.seo}>
       <SEO seo={data.seo}/>

@@ -1,12 +1,7 @@
-import { AllContentfulModel, Step } from "../../models";
 import React from "react";
 import persianJs from "persianjs";
 
-interface Props {
-  steps: AllContentfulModel<Step>;
-}
-
-export const StepTile = ({ steps }: Props) => {
+export const StepTile = ({ steps }) => {
   return (
     <div className="columns">
       {

@@ -1,11 +1,6 @@
-import { Service, AllContentfulModel } from "../../models";
 import React from "react";
 
-interface Props {
-  services: AllContentfulModel<Service>;
-}
-
-export const ServiceTile = ({ services }: Props) => {
+export const ServiceTile = ({ services }) => {
   return (
     <div className="tile is-ancestor">
       {

@@ -2,50 +2,42 @@ import React from 'react';
 import { useState } from 'react';
 import { produce } from 'immer';
 import classNames from 'classnames';
-type Props = {
-};
 
-type FormErrors = {
-  name: boolean;
-  contact: boolean;
-  body: boolean;
-};
+export const ContactForm = () => {
 
-export const ContactForm: React.SFC<Props> = () => {
+  const [name, setName] = useState('');
+  const [contact, setContact] = useState('');
+  const [body, setBody] = useState('');
+  const [submitted, setSubmitted] = useState(false);
 
-  const [name, setName] = useState<string>('');
-  const [contact, setContact] = useState<string>('');
-  const [body, setBody] = useState<string>('');
-  const [submitted, setSubmitted] = useState<boolean>(false);
-
-  const [errors, setErrors] = useState<FormErrors>({
+  const [errors, setErrors] = useState({
     name: false,
     contact: false,
     body: false,
   });
 
-  const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
+  const handleNameChange = (event) => {
     setName(event.target.value);
     setErrors(produce(errors, (draft) => {
       draft.name = !event.target.value;
     }));
   };
 
-  const handleContactChange = (event: React.ChangeEvent<HTMLInputElement>): void => {
+  const handleContactChange = (event) => {
     setContact(event.target.value);
     setErrors(produce(errors, (draft) => {
       draft.contact = !event.target.value;
     }));
   };
 
-  const handleMessageChange = (event: React.ChangeEvent<HTMLTextAreaElement>): void => {
+  const handleMessageChange = (event) => {
     setBody(event.target.value);
     setErrors(produce(errors, (draft) => {
       draft.body = !event.target.value;
     }));
   };
 
-  const validate = (): FormErrors => {
+  const validate = () => {
     return {
       name: !name,
       contact: !contact,
@@ -53,7 +45,7 @@ export const ContactForm: React.SFC<Props> = () => {
     };
   };
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = (event) => {
     const errors = validate();
     
     setSubmitted(true);
@@ -134,11 +126,11 @@ export const ContactForm: React.SFC<Props> = () => {
   );
 };
 
-const formIsValid = (errors: FormErrors): boolean => {
+const formIsValid = (errors) => {
   return Object.values(errors).every(r => !r);
 };
 
-const getFieldClass = (submitted: boolean, hasError: boolean): string => {
+const getFieldClass = (submitted, hasError) => {
   if (submitted) {
     return hasError ? 'is-danger' : 'is-success';
   }
