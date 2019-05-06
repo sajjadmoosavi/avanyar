@@ -1,9 +1,8 @@
 import React from 'react';
 import './index.scss';
-import './bulma-rtl.scss';
 import Helmet from 'react-helmet';
-import { Logo } from '../Logo';
 import { Link } from 'react-scroll';
+import { Logo, SEO, Footer } from "..";
 
 export const Container = ({ children, logo, seo }) => (
   <>
@@ -15,6 +14,7 @@ export const Container = ({ children, logo, seo }) => (
     >
       <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
     </Helmet>
+    <SEO seo={seo}/>
     <nav className="navbar is-fixed-top is-primary">
       <div className="container">
         <div className="navbar-brand">
@@ -83,12 +83,6 @@ export const Container = ({ children, logo, seo }) => (
       </div>
     </section>
     {children}
-    <footer className="footer">
-      <div className="content has-text-centered">
-        <p>
-          تمامی حقوق مادی و معنوی به <a href="/" title="آوان‌یار">آوان‌یار</a> تعلق دارد.
-        </p>
-      </div>
-    </footer>
+    <Footer />
   </>
 )

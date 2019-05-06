@@ -9,23 +9,28 @@
     "classnames": "^2.2.6",
     "gatsby": "^2.1.19",
     "gatsby-image": "^2.0.31",
+    "gatsby-plugin-glamor": "^2.0.9",
+    "gatsby-plugin-jarvis": "^0.0.3",
     "gatsby-plugin-manifest": "^2.0.17",
     "gatsby-plugin-offline": "^2.0.24",
     "gatsby-plugin-react-helmet": "^3.0.6",
     "gatsby-plugin-sass": "^2.0.10",
     "gatsby-plugin-sharp": "^2.0.20",
-    "gatsby-plugin-typescript": "^2.0.7",
     "gatsby-source-contentful": "^2.0.33",
     "gatsby-source-filesystem": "^2.0.23",
+    "gatsby-transformer-remark": "^2.3.12",
     "gatsby-transformer-sharp": "^2.1.13",
+    "glamor": "^2.20.40",
     "immer": "^2.1.0",
+    "moment-jalaali": "^0.8.3",
     "node-sass": "^4.11.0",
     "persianjs": "^0.4.0",
     "prop-types": "^15.6.2",
     "react": "^16.8.0",
     "react-dom": "^16.8.0",
     "react-helmet": "^5.2.0",
-    "react-scroll": "^1.7.11"
+    "react-scroll": "^1.7.11",
+    "webpack-jarvis": "^0.3.2"
   },
   "keywords": [
     "gatsby"
@@ -45,7 +50,5 @@
   "bugs": {
     "url": "https://github.com/gatsbyjs/gatsby/issues"
   },
-  "devDependencies": {
-    "@types/classnames": "^2.2.7"
-  }
+  "devDependencies": {}
 }

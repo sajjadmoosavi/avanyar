@@ -1,0 +1,26 @@
+.navbar .navbar-brand {
+  margin-left: 1.75rem;
+}
+
+.level.is-mobile .level-item:not(:last-child) {
+  margin-right: 0;
+  margin-left: 0.75rem;
+}
+
+.navbar-start {
+  margin-left: auto;
+  margin-right: 0;
+}
+
+.media-left {
+  margin-right: 0;
+  margin-left: 1rem;
+}
+
+.media {
+  text-align: inherit;
+}
+
+.media-content {
+  text-align: inherit;
+}

@@ -37,6 +37,8 @@ module.exports = {
     keywords,
   },
   plugins: [
+    `gatsby-plugin-jarvis`,
+    `gatsby-transformer-remark`,
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -48,6 +50,7 @@ module.exports = {
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
     `gatsby-plugin-sass`,
+    `gatsby-plugin-glamor`,
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
@@ -67,6 +70,6 @@ module.exports = {
         spaceId: `esdrv9zowlcp`,
         accessToken: `b8cf2fb475a69cff1ac4f5c09763a148407e2b16bb929acb3633a1b986ca46f2`,
       },
-    },
+    }
   ],
 }
