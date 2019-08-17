@@ -49,7 +49,7 @@ const Post = ({ data }) => {
       <nav className="container is-fluid navbar is-fixed-top">
         <div className="navbar-brand" role="navigation" aria-label="main navigation">
           <Link
-            to="/home"
+            to="/"
           >
             <Logo
               seo={data.seo}
@@ -110,7 +110,14 @@ const Post = ({ data }) => {
             >
               {data.post.title}
             </h1>
-            <p className="has-text-grey" {...subtitle}>{moment(data.post.createdAt).format("jD jMMMM jYYYY ساعت hh:mm A")}</p>
+            <p className="has-text-grey" {...subtitle}>{
+              [
+                'نوشته شده توسط',
+                data.post.author[0].name,
+                'در تاریخ',
+                moment(data.post.createdAt).format("jD jMMMM jYYYY"),
+              ].join(' ')
+            }</p>
             <figure className="is-block image" {...cover}>
               <img src={data.post.cover.file.url} />
             </figure>
@@ -123,7 +130,7 @@ const Post = ({ data }) => {
           </article>
           <div className="tile is-parent">
             <div className="tile is-child box">
-              <article className="media ">
+              <article className="media">
                 <figure className="media-left">
                   <p className="image is-64x64">
                     <img className="is-rounded" src={data.post.author[0].avatar.file.url} />
@@ -131,7 +138,12 @@ const Post = ({ data }) => {
                 </figure>
                 <div className="media-content">
                   <div className="content">
-                    <h1 className="is-size-5" {...title}>{data.post.author[0].name}</h1>
+                    <p>
+                      <strong style={{ marginLeft: 12 }}>
+                        {data.post.author[0].name}
+                      </strong>
+                      <small>{moment(data.post.createdAt).format('jYYYY/jM/jD')}</small>
+                    </p>
                     <p className="is-block">{data.post.author[0].bio}</p>
                   </div>
                 </div>
