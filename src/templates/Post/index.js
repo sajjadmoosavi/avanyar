@@ -52,8 +52,7 @@ const Post = ({ data }) => {
             to="/"
           >
             <Logo
-              seo={data.seo}
-              name={data.seo.siteMetadata.name}
+              siteMetadata={data.seo.siteMetadata}
               image={data.logo}
             />
           </Link>
@@ -152,7 +151,7 @@ const Post = ({ data }) => {
           </div>
         </div>
       </section>
-      <Footer />
+      <Footer siteMetadata={data.seo.siteMetadata} logo={data.logo} />
     </>
   );
 }
