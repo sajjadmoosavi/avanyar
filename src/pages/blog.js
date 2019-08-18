@@ -1,11 +1,11 @@
 import React from "react";
 import { Link, graphql } from "gatsby";
-import { Footer, SEO, Logo } from "../../components"
+import { Footer, SEO, Logo } from "../components"
 import { Helmet } from "react-helmet";
 import { useState } from "react";
 import classNames from "classnames";
 import { css } from 'glamor';
-import "../../styles/bulma-rtl.scss";
+import "../styles/bulma-rtl.scss";
 
 const moment = require('moment-jalaali');
 moment.loadPersian({
@@ -34,6 +34,9 @@ const Post = ({ data }) => {
   const main = css({
     margin: '36px 0 48px 0',
   });
+
+  console.log(data);
+
 
   return (
     <>
@@ -100,56 +103,39 @@ const Post = ({ data }) => {
       </nav >
       <section className="container">
         <div {...main}>
-          <article {...post}>
-            <header>
-              {data.post.author.name}
-            </header>
-            <h1
-              className="is-size-3-desktop is-size-5-touch has-text-weight-bold"
-              {...title}
-            >
-              {data.post.title}
-            </h1>
-            <p className="has-text-grey" {...subtitle}>{
-              [
-                'نوشته شده توسط',
-                data.post.author[0].name,
-                'در تاریخ',
-                moment(data.post.createdAt).format("jD jMMMM jYYYY"),
-              ].join(' ')
-            }</p>
-            <figure className="is-block image" {...cover}>
-              <img src={data.post.cover.file.url} />
-            </figure>
-            <p
-              className="content is-size-5-desktop"
-              dangerouslySetInnerHTML={{
-                __html: data.post.content.childMarkdownRemark.html,
-              }}
-            />
-          </article>
-          <div className="tile is-parent">
-            <div className="tile is-child box">
-              <article className="media">
-                <figure className="media-left">
-                  <p className="image is-64x64">
-                    <img className="is-rounded" src={data.post.author[0].avatar.file.url} />
-                  </p>
-                </figure>
-                <div className="media-content">
-                  <div className="content">
-                    <p>
-                      <strong style={{ marginLeft: 12 }}>
-                        {data.post.author[0].name}
-                      </strong>
-                      <small>{moment(data.post.createdAt).format('jYYYY/jM/jD')}</small>
-                    </p>
-                    <p className="is-block">{data.post.author[0].bio}</p>
+          {
+            data.posts.edges.map(({ node }) => (
+              <a href={`/blog/${node.slug}`}>
+                <article className="card" key={node.id} style={{ marginBottom: 48 }}>
+                  <div class="card-image">
+                    <figure class="image is-3by1">
+                      <img src={node.cover.file.url} alt={node.title} />
+                    </figure>
                   </div>
-                </div>
-              </article>
-            </div>
-          </div>
+                  <div className="card-content">
+                    <h2 className="title is-size-5">
+                      {node.title}
+                    </h2>
+                    <div class="media">
+                      <div className="media-left">
+                        <figure class="image is-32x32" style={{ display: 'inline-block' }}>
+                          <img class="is-rounded" src={node.author[0].avatar.file.url} />
+                        </figure>
+                      </div>
+                      <div class="media-content">
+                        <div class="content">
+                          <strong>{node.author[0].name}</strong>
+                          <p>
+                            <small>{moment(node.createdAt).format("jD jMMMM jYYYY")}</small>
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+              </a>
+            ))
+          }
         </div>
       </section>
       <Footer siteMetadata={data.seo.siteMetadata} logo={data.logo} />
@@ -160,46 +146,45 @@ const Post = ({ data }) => {
 export default Post;
 
 export const pageQuery = graphql`
-query($slug: String!) {
-  post: contentfulPost(slug: { eq: $slug }) {
-    title
-    slug
-    content {
-      childMarkdownRemark {
-        html
-      }
-    }
-    author {
-      name
-      bio
-      avatar {
-        file {
-          url
-        }
-      }
-    }
-    cover {
-      file {
+query {
+          posts: allContentfulPost {
+          edges {
+        node {
+          id
+        createdAt
+        title
+        slug
+        cover {
+          file {
         url
       }
     }
-    createdAt
-  }
-  logo: file(relativePath: { eq: "icon-face.png" }) {
-    childImageSharp {
-      fixed(height: 40, width: 40) {
-        ...GatsbyImageSharpFixed
+        author {
+          name
+          avatar {
+          file {
+        url
       }
     }
   }
+}
+}
+}
+  logo: file(relativePath: {eq: "icon-face.png" }) {
+          childImageSharp {
+        fixed(height: 40, width: 40) {
+          ...GatsbyImageSharpFixed
+        }
+        }
+      }
   seo: site {
-    siteMetadata {
-      name
-      title
-      description
-      author
-      keywords
+          siteMetadata {
+        name
+        title
+        description
+        author
+        keywords
+      }
     }
   }
-}
 `;
