@@ -10,9 +10,11 @@ import { StepTile } from "../components/StepTile";
 
 
 const IndexPage = ({ data }) => {
+  console.log(data);
+
   return (
     <Container logo={data.logo} seo={data.seo}>
-      <SEO seo={data.seo}/>
+      <SEO seo={data.seo} />
       <section className="hero is-medium">
         <div id="services" className="hero-body">
           <div className="container has-text-centered">
@@ -45,30 +47,10 @@ const IndexPage = ({ data }) => {
             <h1 className="title has-text-centered">
               راه‌های تماس با ما
             </h1>
-            <br />
-            <div className="tile is-ancestor">
-              <div className="tile is-6 is-parent">
-                <div className="tile is-child">
-                  <p>برای ما بنویسید، در کوتاه‌ترین زمان ممکن با شما تماس خواهیم گرفت.</p>
-                  <br />
-                  <ContactForm />
-                </div>
-              </div>
-              <div className="tile is-6 is-parent">
-                <div className="tile is-child">
-                  <Logo seo={data.seo} image={data.logo} reverse={false} />
-                  <p className="is-size-5 has-text-weight-semibold has-text-grey-dark">۰۲۱-۱۲۳۴۵۶۷۸</p>
-                  <p className="is-size-6 has-text-grey-dark">تهران، اتوبان اشرفی اصفهانی، ساختمان زمرد</p>
-                  <p className="is-size-6 has-text-grey-dark">
-                    <a href="mailto:avanyar@outlook.com">avanyar@outlook.com</a>
-                  </p>
-                  <LocationMap
-                    image={data.map}
-                    address="تهران، اتوبان اشرفی اصفهانی، ساختمان زمرد"
-                  />
-                </div>
-              </div>
-            </div>
+            <h2 className="subtitle has-text-centered">
+              برای ما بنویسید، در کوتاه‌ترین زمان ممکن با شما تماس خواهیم گرفت.
+            </h2>
+            <ContactForm />
           </div>
         </div>
       </section>

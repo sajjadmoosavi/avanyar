@@ -24,3 +24,8 @@
 .media-content {
   text-align: inherit;
 }
+
+.column.is-offset-one-quarter, .column.is-offset-one-quarter-tablet {
+  margin-left: 0;
+  margin-right: 25%;
+}

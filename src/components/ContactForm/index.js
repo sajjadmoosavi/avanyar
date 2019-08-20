@@ -47,10 +47,10 @@ export const ContactForm = () => {
 
   const handleSubmit = (event) => {
     const errors = validate();
-    
+
     setSubmitted(true);
     setErrors(errors);
-    
+
     if (!formIsValid(errors)) {
       event.preventDefault();
       return;
@@ -67,6 +67,7 @@ export const ContactForm = () => {
       data-netlify="true"
       onSubmit={handleSubmit}
       netlify-honeypot="bot-field"
+      style={{ maxWidth: 512, margin: '0 auto' }}
     >
       <div className="field">
         <label className="label">نام</label>

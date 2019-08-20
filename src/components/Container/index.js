@@ -14,7 +14,7 @@ export const Container = ({ children, logo, seo }) => (
     >
       <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
     </Helmet>
-    <SEO seo={seo}/>
+    <SEO seo={seo} />
     <nav className="navbar is-fixed-top is-primary">
       <div className="container">
         <div className="navbar-brand">
@@ -26,7 +26,7 @@ export const Container = ({ children, logo, seo }) => (
             offset={-52}
             duration={500}
           >
-            <Logo seo={seo} image={logo} reverse={true}/>
+            <Logo siteMetadata={seo.siteMetadata} image={logo} />
           </Link>
           <span className="navbar-burger burger" data-target="navbarMenuHeroA">
             <span></span>
@@ -83,6 +83,6 @@ export const Container = ({ children, logo, seo }) => (
       </div>
     </section>
     {children}
-    <Footer />
+    <Footer logo={logo} siteMetadata={seo.siteMetadata} />
   </>
 )
