@@ -1,5 +1,4 @@
 export { ContactForm } from "./ContactForm";
-export { Container } from "./Container";
 export { Footer } from "./Footer";
 export { LocationMap } from "./LocationMap";
 export { Logo } from "./Logo";

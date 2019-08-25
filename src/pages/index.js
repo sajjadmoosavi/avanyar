@@ -1,20 +1,79 @@
-import React from "react"
-import { Container } from "../components/Container"
+import React from "react";
+import { useState } from "react";
 import { SEO } from "../components/SEO"
-import { graphql } from "gatsby";
-import { ServiceTile } from "../components/ServiceTile";
-import { ContactForm } from "../components/ContactForm";
-import { Logo } from "../components/Logo";
-import { LocationMap } from "../components/LocationMap";
-import { StepTile } from "../components/StepTile";
+import { graphql, Link } from "gatsby";
+import { ServiceTile, Footer, ContactForm, StepTile, Logo } from "../components";
+import { Helmet } from "react-helmet";
+import classNames from "classnames";
 
 
 const IndexPage = ({ data }) => {
-  console.log(data);
+  const [burgerIsActive, setBurgerIsActive] = useState(false);
 
   return (
-    <Container logo={data.logo} seo={data.seo}>
+    <>
+      <Helmet
+        htmlAttributes={{
+          dir: 'rtl',
+          class: 'has-navbar-fixed-top',
+        }}
+      >
+        <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico" />
+      </Helmet>
       <SEO seo={data.seo} />
+      <nav className="navbar is-primary is-fixed-top">
+        <div className="navbar-brand" role="navigation" aria-label="main navigation">
+          <Link
+            to="/"
+          >
+            <Logo
+              siteMetadata={data.seo.siteMetadata}
+              image={data.logo}
+              reverse={true}
+            />
+          </Link>
+          <a
+            role="button"
+            className={classNames("navbar-burger burger", burgerIsActive ? "is-active" : null)}
+            aria-label="menu"
+            aria-expanded="false"
+            data-target="navbarMenu"
+            onClick={() => setBurgerIsActive(!burgerIsActive)}
+          >
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+            <span aria-hidden="true"></span>
+          </a>
+        </div>
+        <div id="navbarMenu" className={classNames("navbar-menu", burgerIsActive ? "is-active" : null)}>
+          <div className="navbar-start">
+            <Link
+              className="navbar-item has-text-weight-bold"
+              to="/#services"
+            >
+              خدمات
+        </Link>
+            <Link
+              className="navbar-item has-text-weight-bold"
+              to="#/workflow"
+            >
+              روش‌کار
+        </Link>
+            <Link
+              className="navbar-item has-text-weight-bold"
+              to="#/contact"
+            >
+              تماس
+        </Link>
+            <Link
+              className="navbar-item has-text-weight-bold"
+              to="/blog"
+            >
+              بلاگ
+        </Link>
+          </div>
+        </div>
+      </nav >
       <section className="hero is-medium">
         <div id="services" className="hero-body">
           <div className="container has-text-centered">
@@ -54,7 +113,8 @@ const IndexPage = ({ data }) => {
           </div>
         </div>
       </section>
-    </Container>
+      <Footer siteMetadata={data.seo.siteMetadata} logo={data.logo} />
+    </>
   );
 }
 

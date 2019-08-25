@@ -5,6 +5,7 @@ import { Helmet } from "react-helmet";
 import { useState } from "react";
 import classNames from "classnames";
 import { css } from 'glamor';
+import "../../styles/main.scss";
 import "../../styles/bulma-rtl.scss";
 
 const moment = require('moment-jalaali');
@@ -70,7 +71,7 @@ const Post = ({ data }) => {
           </a>
         </div>
         <div id="navbarMenu" className={classNames("navbar-menu", burgerIsActive ? "is-active" : null)}>
-          <div class="navbar-start">
+          <div className="navbar-start">
             <Link
               className="navbar-item has-text-weight-bold"
               to="/#services"

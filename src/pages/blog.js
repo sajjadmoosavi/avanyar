@@ -15,28 +15,9 @@ moment.loadPersian({
 const Post = ({ data }) => {
   const [burgerIsActive, setBurgerIsActive] = useState(false);
 
-  const cover = css({
-    margin: '14px 0 18px 0',
-  });
-
-  const title = css({
-    marginBottom: '8px',
-  });
-
-  const subtitle = css({
-    marginBottom: '4px',
-  });
-
-  const post = css({
-    marginBottom: '24px'
-  });
-
   const main = css({
     margin: '36px 0 48px 0',
   });
-
-  console.log(data);
-
 
   return (
     <>
@@ -73,7 +54,7 @@ const Post = ({ data }) => {
           </a>
         </div>
         <div id="navbarMenu" className={classNames("navbar-menu", burgerIsActive ? "is-active" : null)}>
-          <div class="navbar-start">
+          <div className="navbar-start">
             <Link
               className="navbar-item has-text-weight-bold"
               to="/#services"
@@ -105,10 +86,10 @@ const Post = ({ data }) => {
         <div {...main}>
           {
             data.posts.edges.map(({ node }) => (
-              <a href={`/blog/${node.slug}`}>
-                <article className="card" key={node.id} style={{ marginBottom: 48 }}>
-                  <div class="card-image">
-                    <figure class="image is-3by1">
+              <a href={`/blog/${node.slug}`} key={node.id}>
+                <article className="card" style={{ marginBottom: 48 }}>
+                  <div className="card-image">
+                    <figure className="image is-3by1">
                       <img src={node.cover.file.url} alt={node.title} />
                     </figure>
                   </div>
@@ -116,14 +97,14 @@ const Post = ({ data }) => {
                     <h2 className="title is-size-5">
                       {node.title}
                     </h2>
-                    <div class="media">
+                    <div className="media">
                       <div className="media-left">
-                        <figure class="image is-32x32" style={{ display: 'inline-block' }}>
-                          <img class="is-rounded" src={node.author[0].avatar.file.url} />
+                        <figure className="image is-32x32" style={{ display: 'inline-block' }}>
+                          <img className="is-rounded" src={node.author[0].avatar.file.url} />
                         </figure>
                       </div>
-                      <div class="media-content">
-                        <div class="content">
+                      <div className="media-content">
+                        <div className="content">
                           <strong>{node.author[0].name}</strong>
                           <p>
                             <small>{moment(node.createdAt).format("jD jMMMM jYYYY")}</small>
