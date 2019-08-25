@@ -119,7 +119,7 @@ const Post = ({ data }) => {
           }
         </div>
       </section>
-      <Footer siteMetadata={data.seo.siteMetadata} logo={data.logo} />
+      <Footer siteMetadata={data.seo.siteMetadata} logo={data.logo} map={data.map} />
     </>
   );
 }
@@ -128,44 +128,51 @@ export default Post;
 
 export const pageQuery = graphql`
 query {
-          posts: allContentfulPost {
-          edges {
-        node {
-          id
+  posts: allContentfulPost {
+    edges {
+      node {
+        id
         createdAt
         title
         slug
         cover {
           file {
-        url
-      }
-    }
+            url
+          }
+        }
         author {
           name
           avatar {
-          file {
-        url
+            file {
+              url
+            }
+          }
+        }
       }
     }
   }
-}
-}
-}
   logo: file(relativePath: {eq: "icon-face.png" }) {
-          childImageSharp {
-        fixed(height: 40, width: 40) {
-          ...GatsbyImageSharpFixed
-        }
-        }
-      }
-  seo: site {
-          siteMetadata {
-        name
-        title
-        description
-        author
-        keywords
+    childImageSharp {
+      fixed(height: 40, width: 40) {
+        ...GatsbyImageSharpFixed
       }
     }
   }
+  seo: site {
+    siteMetadata {
+      name
+      title
+      description
+      author
+      keywords
+    }
+  }
+  map: file(relativePath: { eq: "map.png" }) {
+    childImageSharp {
+      fixed(height: 320, width: 480) {
+        ...GatsbyImageSharpFixed
+      }
+    }
+  }
+}
 `;

@@ -2,7 +2,7 @@ import React from "react";
 import Img from 'gatsby-image';
 import './style.scss';
 
-export const Footer = ({ siteMetadata, logo }) => (
+export const Footer = ({ siteMetadata, logo, map }) => (
   <footer className="footer">
     <div className="columns">
       <div className="column brand">
@@ -22,7 +22,12 @@ export const Footer = ({ siteMetadata, logo }) => (
         </p>
       </div>
       <div className="column">
-
+        <Img
+          fixed={map.childImageSharp.fixed}
+          title="فارس، شیراز، چهار راه پارامونت مجتمع تجاری خلیج فارس، طبقه دوم اداری واحد ۱۳"
+          alt="فارس، شیراز، چهار راه پارامونت مجتمع تجاری خلیج فارس، طبقه دوم اداری واحد ۱۳"
+          style={{ marginLeft: 6 }}
+        />
       </div>
       <div className="column">
         <p>

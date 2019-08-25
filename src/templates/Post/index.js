@@ -153,7 +153,7 @@ const Post = ({ data }) => {
           </div>
         </div>
       </section>
-      <Footer siteMetadata={data.seo.siteMetadata} logo={data.logo} />
+      <Footer siteMetadata={data.seo.siteMetadata} logo={data.logo} map={data.map} />
     </>
   );
 }
@@ -200,6 +200,13 @@ query($slug: String!) {
       description
       author
       keywords
+    }
+  }
+  map: file(relativePath: { eq: "map.png" }) {
+    childImageSharp {
+      fixed(height: 320, width: 480) {
+        ...GatsbyImageSharpFixed
+      }
     }
   }
 }
