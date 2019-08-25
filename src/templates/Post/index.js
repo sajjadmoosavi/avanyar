@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, graphql } from "gatsby";
+import Img from "gatsby-image";
 import { Footer, SEO, Logo } from "../../components"
 import { Helmet } from "react-helmet";
 import { useState } from "react";
@@ -8,6 +9,7 @@ import { css } from 'glamor';
 import "../../styles/main.scss";
 import "../../styles/bulma-rtl.scss";
 
+
 const moment = require('moment-jalaali');
 moment.loadPersian({
   usePersianDigits: true,
@@ -15,10 +17,6 @@ moment.loadPersian({
 
 const Post = ({ data }) => {
   const [burgerIsActive, setBurgerIsActive] = useState(false);
-
-  const cover = css({
-    margin: '14px 0 18px 0',
-  });
 
   const title = css({
     marginBottom: '8px',
@@ -119,9 +117,17 @@ const Post = ({ data }) => {
                 moment(data.post.createdAt).format("jD jMMMM jYYYY"),
               ].join(' ')
             }</p>
-            <figure className="is-block image" {...cover}>
-              <img src={data.post.cover.file.url} />
-            </figure>
+            <Img
+              className="is-block image"
+              fluid={data.post.cover.fluid}
+              objectFit="cover"
+              objectPosition="50% 50%"
+              alt={data.post.title}
+              style={{
+                margin: '14px 0 18px 0',
+                height: 320,
+              }}
+            />
             <p
               className="content is-size-5-desktop"
               dangerouslySetInnerHTML={{
@@ -133,9 +139,10 @@ const Post = ({ data }) => {
             <div className="tile is-child box">
               <article className="media">
                 <figure className="media-left">
-                  <p className="image is-64x64">
-                    <img className="is-rounded" src={data.post.author[0].avatar.file.url} />
-                  </p>
+                  <Img
+                    fixed={data.post.author[0].avatar.fixed}
+                    style={{ 'border-radius': '50%' }}
+                  />
                 </figure>
                 <div className="media-content">
                   <div className="content">
@@ -174,14 +181,21 @@ query($slug: String!) {
       name
       bio
       avatar {
-        file {
-          url
+        fixed(width: 64, height: 64) {
+          base64
+          src
+          srcSet
+          height
+          width
         }
       }
     }
     cover {
-      file {
-        url
+      fluid(maxHeight: 640) {
+        srcSet
+        base64
+        sizes
+        src
       }
     }
     createdAt

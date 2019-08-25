@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, graphql } from "gatsby";
+import Img from "gatsby-image";
 import { Footer, SEO, Logo } from "../components"
 import { Helmet } from "react-helmet";
 import { useState } from "react";
@@ -89,9 +90,13 @@ const Post = ({ data }) => {
               <a href={`/blog/${node.slug}`} key={node.id}>
                 <article className="card" style={{ marginBottom: 48 }}>
                   <div className="card-image">
-                    <figure className="image is-3by1">
-                      <img src={node.cover.file.url} alt={node.title} />
-                    </figure>
+                    <Img
+                      style={{ height: 320 }}
+                      fluid={node.cover.fluid}
+                      objectFit="cover"
+                      objectPosition="50% 50%"
+                      alt={node.title}
+                    />
                   </div>
                   <div className="card-content">
                     <h2 className="title is-size-5">
@@ -99,9 +104,10 @@ const Post = ({ data }) => {
                     </h2>
                     <div className="media">
                       <div className="media-left">
-                        <figure className="image is-32x32" style={{ display: 'inline-block' }}>
-                          <img className="is-rounded" src={node.author[0].avatar.file.url} />
-                        </figure>
+                        <Img
+                          fixed={node.author[0].avatar.fixed}
+                          style={{ 'border-radius': '50%' }}
+                        />
                       </div>
                       <div className="media-content">
                         <div className="content">
@@ -136,15 +142,22 @@ query {
         title
         slug
         cover {
-          file {
-            url
+          fluid(maxHeight: 640, maxWidth: 1920) {
+            srcSet
+            base64
+            sizes
+            src
           }
         }
         author {
           name
           avatar {
-            file {
-              url
+            fixed(width: 48, height: 48) {
+              base64
+              src
+              srcSet
+              height
+              width
             }
           }
         }
