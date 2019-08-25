@@ -74,6 +74,14 @@ const IndexPage = ({ data }) => {
           </div>
         </div>
       </nav >
+      <section id="hero" className="hero is-primary is-medium">
+        <div className="hero-body">
+          <div className="container has-text-centered">
+            <h2 className="title">ارائه راه‌کارهای امنیتی و هوشمندسازی</h2>
+            <h2 className="subtitle">برای خانه، محل کار و سازمان شما</h2>
+          </div>
+        </div>
+      </section>
       <section className="hero is-medium">
         <div id="services" className="hero-body">
           <div className="container has-text-centered">
