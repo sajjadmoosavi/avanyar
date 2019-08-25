@@ -29,13 +29,13 @@ export const Footer = ({ siteMetadata, logo }) => (
           <span className="has-text-weight-medium">
             فارس، شیراز، چهار راه پارامونت
           <br />
-            پاساژ ایران زمین، طبقه دوم واحد ۱۳
+            مجتمع تجاری خلیج فارس، طبقه دوم اداری واحد ۱۳
           </span>
           <br />
           <br />
           <span className="is-size-5 has-text-weight-medium">۰۷۱-۹۱۰۰۲۲۰۳</span>
           <br />
-          <span className="is-size-5 has-text-weight-medium">۰۹۱۷-۱۲۳۴۵۶۷</span>
+          <span className="is-size-5 has-text-weight-medium">۰۹۹۰-۳۳۳۷۵۰۵</span>
           <br />
           <br />
           <a href="mailto:hi@avanyar.ir">hi@avanyar.ir</a>
