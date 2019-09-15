@@ -64,13 +64,13 @@ const Post = ({ data }) => {
         </Link>
             <Link
               className="navbar-item has-text-weight-bold"
-              to="#/workflow"
+              to="/#workflow"
             >
               روش‌کار
         </Link>
             <Link
               className="navbar-item has-text-weight-bold"
-              to="#/contact"
+              to="/#contact"
             >
               تماس
         </Link>

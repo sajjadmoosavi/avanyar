@@ -23,7 +23,6 @@ export const Footer = ({ siteMetadata, logo, map }) => (
       </div>
       <div className="column">
         <Img
-          className="image is-4by3"
           fluid={map.childImageSharp.fluid}
           title="فارس، شیراز، چهار راه پارامونت مجتمع تجاری خلیج فارس، طبقه دوم اداری واحد ۱۳"
           alt="فارس، شیراز، چهار راه پارامونت مجتمع تجاری خلیج فارس، طبقه دوم اداری واحد ۱۳"

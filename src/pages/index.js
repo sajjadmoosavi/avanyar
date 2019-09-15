@@ -49,19 +49,19 @@ const IndexPage = ({ data }) => {
           <div className="navbar-start">
             <Link
               className="navbar-item has-text-weight-bold"
-              to="/#services"
+              to="#services"
             >
               خدمات
         </Link>
             <Link
               className="navbar-item has-text-weight-bold"
-              to="#/workflow"
+              to="#workflow"
             >
               روش‌کار
         </Link>
             <Link
               className="navbar-item has-text-weight-bold"
-              to="#/contact"
+              to="#contact"
             >
               تماس
         </Link>
