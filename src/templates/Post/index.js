@@ -218,8 +218,8 @@ query($slug: String!) {
   }
   map: file(relativePath: { eq: "map.png" }) {
     childImageSharp {
-      fixed(height: 320, width: 480) {
-        ...GatsbyImageSharpFixed
+      fluid(maxHeight: 320, maxWidth: 480) {
+        ...GatsbyImageSharpFluid
       }
     }
   }
