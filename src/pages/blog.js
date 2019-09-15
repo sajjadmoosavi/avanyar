@@ -141,6 +141,11 @@ query {
         createdAt
         title
         slug
+        content {
+          childMarkdownRemark {
+            html
+          }
+        }
         cover {
           fluid(maxHeight: 640, maxWidth: 1920) {
             srcSet
