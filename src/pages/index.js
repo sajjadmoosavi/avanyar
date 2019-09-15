@@ -151,14 +151,9 @@ query {
         slug
         title
         subtitle
-        cover {
-          file {
-            url
-          }
-        }
         thumbnail {
-          file {
-            url
+          fixed (width: 96) {
+            ...GatsbyContentfulFixed
           }
         }
       }

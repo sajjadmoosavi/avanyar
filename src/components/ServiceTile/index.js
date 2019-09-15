@@ -1,4 +1,5 @@
 import React from "react";
+import Img from 'gatsby-image';
 
 export const ServiceTile = ({ services }) => {
   return (
@@ -8,11 +9,12 @@ export const ServiceTile = ({ services }) => {
           <div className="tile is-parent" key={item.node.id}>
             <a href={`/service/${item.node.slug}`} title={item.node.subtitle}>
               <article className="tile is-child box">
-                <p className="title">{item.node.title}</p>
-                <p className="subtitle">{item.node.subtitle}</p>
-                <figure className="is-inline-block image is-128x128">
-                  <img src={item.node.thumbnail.file.url} />
-                </figure>
+                <p className="title is-size-4">{item.node.title}</p>
+                <p className="subtitle is-size-6">{item.node.subtitle}</p>
+                <Img
+                  fixed={item.node.thumbnail.fixed}
+                  alt={item.node.title}
+                />
               </article>
             </a>
           </div>
