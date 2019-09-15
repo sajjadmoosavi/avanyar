@@ -22,29 +22,48 @@ exports.createPages = ({ graphql, actions }) => {
               slug
             }
           }
+        },
+        services: allContentfulService {
+          edges {
+            node {
+              slug
+            }
+          }
         }
       }
     `
   ).then(result => {
-      if (result.errors) {
-        console.log("Error retrieving contentful data", result.errors);
-      }
+    if (result.errors) {
+      console.log("Error retrieving contentful data", result.errors);
+    }
 
-      // Resolve the paths to our template
-      const blogPostTemplate = path.resolve("./src/templates/Post/index.js");
+    // Resolve the paths to our template
+    const blogPostTemplate = path.resolve("./src/templates/Post/index.js");
+    const serviceDescriptionTemplate = path.resolve("./src/templates/Service/index.js");
 
-      // Then for each result we create a page.
-      result.data.posts.edges.forEach(edge => {
-        createPage({
-          path: `/blog/${edge.node.slug}/`,
-          component: slash(blogPostTemplate),
-          context: {
-            slug: edge.node.slug,
-            id: edge.node.id
-          }
-        });
+    // Then for each result we create a page.
+    result.data.posts.edges.forEach(edge => {
+      createPage({
+        path: `/blog/${edge.node.slug}/`,
+        component: slash(blogPostTemplate),
+        context: {
+          slug: edge.node.slug,
+          id: edge.node.id
+        }
       });
-    })
+    });
+
+    result.data.services.edges.forEach(edge => {
+      createPage({
+        path: `/service/${edge.node.slug}/`,
+        component: slash(serviceDescriptionTemplate),
+        context: {
+          slug: edge.node.slug,
+          id: edge.node.id
+        }
+      });
+    });
+  })
     .catch(error => {
       console.log("Error retrieving contentful data", error);
     });
